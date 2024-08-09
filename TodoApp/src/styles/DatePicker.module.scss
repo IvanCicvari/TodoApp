@@ -1,0 +1,13 @@
+// src/styles/DatePicker.module.scss
+@import './variables.scss';
+
+.datePickerContainer {
+    margin-top: 1rem;
+  }
+  
+  .datePicker {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

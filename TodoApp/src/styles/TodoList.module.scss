@@ -1,0 +1,117 @@
+@import './variables.scss';
+
+.todoList {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    header {
+      h1 {
+        color: #333;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+      &:focus {
+        border-color: #ff7e5f;
+        outline: none;
+      }
+    }
+  
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #ff7e5f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: #feb47b;
+      }
+    }
+  
+    .taskContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+  
+      .todoItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+  
+        &.done {
+          background-color: #e0f7fa;
+        }
+  
+        &.apiTask {
+          border-left: 4px solid #ff7e5f;
+        }
+  
+        &.manualTask {
+          border-left: 4px solid #4caf50;
+        }
+  
+        span {
+          flex-grow: 1;
+          margin-left: 10px;
+          color: #555;
+          font-size: 1rem;
+        }
+  
+        input[type="checkbox"] {
+          cursor: pointer;
+        }
+  
+        button {
+          background-color: transparent;
+          border: none;
+          color: #ff7e5f;
+          cursor: pointer;
+          font-size: 1.2rem;
+          transition: color 0.3s ease;
+          &:hover {
+            color: #feb47b;
+          }
+        }
+      }
+    }
+  }
+  /* src/styles/TodoList.module.scss */
+.light-mode {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+  

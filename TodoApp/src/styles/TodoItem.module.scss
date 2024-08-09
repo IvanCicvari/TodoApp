@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.todoItem {
+    /* Common styles for todo items */
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+  }
+  
+  .done {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .apiTask {
+    border: 1px solid #007bff; /* Blue border for API tasks */
+  }
+  
+  .manualTask {
+    border: 1px solid #28a745; /* Green border for manual tasks */
+  }
+  
+  .priorityLow {
+    background-color: #e0f7fa; /* Light blue background for low priority */
+  }
+  
+  .priorityMedium {
+    background-color: #ffecb3; /* Light yellow background for medium priority */
+  }
+  
+  .priorityHigh {
+    background-color: #ffccbc; /* Light red background for high priority */
+  }
+  
+  .priorityLabel {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .timestamp {
+    display: block;
+    color: #888;
+  }
+  

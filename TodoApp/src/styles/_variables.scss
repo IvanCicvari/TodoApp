@@ -1,0 +1,21 @@
+/* styles/variables.scss */
+
+/* Default (Light Mode) */
+:root {
+    --background-color: #fff;
+    --text-color: #000;
+  }
+  
+  /* Dark Mode */
+  [data-theme='dark'] {
+    --background-color: #333;
+    --text-color: #fff;
+  }
+  
+  /* Apply variables to body */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
