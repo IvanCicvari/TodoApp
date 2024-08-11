@@ -33,7 +33,7 @@ const TodoList: React.FC = () => {
   const handleAddTask = () => {
     // Validate inputs
     if (taskInput.trim() === '' || dueDate.trim() === '' || !priority) {
-      alert('Please fill in all fields'); // Alert if any field is empty
+      alert('Please fill in all fields');
       return;
     }
   
@@ -41,9 +41,9 @@ const TodoList: React.FC = () => {
       id: Date.now(),
       text: taskInput,
       done: false,
-      priority, // Add priority to the task
-      dueDate, // Add dueDate to the task
-      fromApi: false, // Mark as manually added
+      priority, 
+      dueDate, 
+      fromApi: false, 
       timestamp: new Date().toLocaleDateString('en-GB', {
         day: '2-digit',
         month: '2-digit',
@@ -52,9 +52,9 @@ const TodoList: React.FC = () => {
     };
   
     setTasks([...tasks, newTask]);
-    setTaskInput(''); // Clear the input
-    setDueDate(''); // Clear dueDate
-    closeAddTaskWindow(); // Close the popup after adding the task
+    setTaskInput(''); 
+    setDueDate(''); 
+    closeAddTaskWindow(); 
   };
   const handleFetchTasks = async () => {
     try {
@@ -107,7 +107,7 @@ const TodoList: React.FC = () => {
         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </button>
       <div className="apiTaskContainer">
-        <input
+        <input className="apiTaskInputField"
           type="number"
           onChange={(e) => setApiCount(Number(e.target.value))}
           placeholder="Number of tasks from API"
@@ -116,7 +116,7 @@ const TodoList: React.FC = () => {
       </div>
       <div className="sortingContainer">
         <label>Sort by:</label>
-        <select
+        <select 
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as "priority" | "timestamp" | "done")}
         >
@@ -150,11 +150,11 @@ const TodoList: React.FC = () => {
       <AddTaskPopup
         isOpen={isOpen}
         taskInput={taskInput}
-        dueDate={dueDate} // Pass dueDate
+        dueDate={dueDate} 
         priority={priority}
         setTaskInput={setTaskInput}
         setPriority={setPriority}
-        setDueDate={setDueDate} // Pass setDueDate
+        setDueDate={setDueDate}
         handleAddTask={handleAddTask}
         closeAddTaskWindow={closeAddTaskWindow}
       />

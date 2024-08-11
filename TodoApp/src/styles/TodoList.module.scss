@@ -1,117 +1,227 @@
 @import './variables.scss';
 
 .todoList {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  header {
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s ease;
     background-color: var(--background-color);
     color: var(--text-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-    header {
-      h1 {
-        color: #333;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 20px;
-        background: linear-gradient(90deg, #ff7e5f, #feb47b);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+
+    &:focus {
+      border-color: #ff7e5f;
+      outline: none;
     }
-  
-    input {
-      width: 100%;
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #feb47b;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  .newTaskContainer,
+  .apiTaskContainer,
+  .sortingContainer {
+    margin-bottom: 20px;
+
+    label {
+      font-size: 1rem;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  }
+
+  .apiTaskContainer {
+    .apiTaskInputField {
+      max-width: 100px;
+      margin-top: 10px;
       padding: 12px;
-      margin-bottom: 10px;
+      font-size: 1rem;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 1rem;
-      transition: border 0.3s ease;
+      transition: border-color 0.3s ease;
+      color: var(--text-color);
+      background-color: var(--background-color);
+
       &:focus {
         border-color: #ff7e5f;
         outline: none;
       }
     }
-  
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
-      font-size: 1rem;
-      color: #fff;
-      background-color: #ff7e5f;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      &:hover {
-        background-color: #feb47b;
-      }
-    }
-  
-    .taskContainer {
+  }
+
+  .taskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+
+    .todoItem {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-  
-      .todoItem {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px;
-        border-radius: 8px;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease;
-  
-        &.done {
-          background-color: #e0f7fa;
-        }
-  
-        &.apiTask {
-          border-left: 4px solid #ff7e5f;
-        }
-  
-        &.manualTask {
-          border-left: 4px solid #4caf50;
-        }
-  
-        span {
-          flex-grow: 1;
-          margin-left: 10px;
-          color: #555;
-          font-size: 1rem;
-        }
-  
-        input[type="checkbox"] {
-          cursor: pointer;
-        }
-  
-        button {
-          background-color: transparent;
-          border: none;
-          color: #ff7e5f;
-          cursor: pointer;
-          font-size: 1.2rem;
-          transition: color 0.3s ease;
-          &:hover {
-            color: #feb47b;
-          }
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &.done {
+        background-color: #e0f7fa;
+      }
+
+      &.apiTask {
+        border-left: 4px solid #ff7e5f;
+      }
+
+      &.manualTask {
+        border-left: 4px solid #4caf50;
+      }
+
+      span {
+        flex-grow: 1;
+        margin-left: 10px;
+        color: #555;
+        font-size: 1rem;
+      }
+
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: #ff7e5f;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #feb47b;
         }
       }
     }
   }
-  /* src/styles/TodoList.module.scss */
+}
+
+/* Dark and Light Mode Styles */
 .light-mode {
-    background-color: #fff;
-    color: #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .todoList {
+    padding: 15px;
+
+    header {
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    input,
+    button {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+
+    .taskContainer .todoItem {
+      padding: 10px;
+
+      span {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
   }
-  
-  .dark-mode {
-    background-color: #333;
-    color: #fff;
+}
+
+@media (max-width: 480px) {
+  .todoList {
+    padding: 10px;
+
+    header {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    input,
+    button {
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+
+    .taskContainer .todoItem {
+      padding: 8px;
+
+      span {
+        font-size: 0.8rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
   }
-  
+}
